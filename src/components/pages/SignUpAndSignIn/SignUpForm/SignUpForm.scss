@@ -1,0 +1,256 @@
+.sign-up {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  background-color: #333333;
+  width: 40%;
+  margin: auto;
+  padding: 3.5vmax 3.5vmax 1.5vmax 3.5vmax;
+  border-radius: 20px;
+  box-shadow: 0 0 30px 5px #0000003e;
+}
+
+.ver-text{
+  text-align: center;
+  padding: 1.5vmax 0;
+}
+
+.ver-content{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vmax;
+}
+
+.resend-code{
+  text-align: center;
+}
+
+.resend-code-u{
+  cursor: pointer;
+  color: #af8cfb;
+}
+
+.center-elements {
+  text-align: center;
+}
+
+.margin-formElement {
+  margin: 20px 0;
+}
+
+.color-purple {
+  color: #af8cfb;
+}
+
+.su-link{
+  color: #af8cfb;
+  font-weight: 500;
+}
+
+
+.back-btn{
+  color: #e7e7e7 !important;
+  border: 2px solid#af8cfb !important;
+  background-color: transparent !important;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.3vmax !important;
+  transition: all 0.3s ease !important;
+  
+  &:hover{
+    background-color: #9b8cbd;
+    border: 3px solid transparent;
+    transform: scale(1.05);
+  }
+}
+
+.bk-purple {
+  background-color: #8966d5 !important;
+  border: none !important;
+  outline: none !important;
+  color: #e7e7e7 !important;
+  // background-color: #5c3aa4;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.3vmax !important;
+  transition: all 0.3s ease !important;
+
+      &:hover{
+        background-color: #af8cfb !important;
+        transform: scale(1.05);
+      }
+}
+
+.sign-up-word{
+  font-size: 2.4vmax;
+  font-weight: 600;
+}
+
+.form-group input {
+  background-color: #555555;
+  border: none;
+}
+
+.form-group input:focus {
+  background-color: #555555;
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.form-group .avatar-ph{
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 150px;
+}
+
+.avatar-su-ph {
+  width: 9vmax;
+  height: 9vmax;
+  object-fit: cover;
+  border-radius: 250px;
+  margin: auto;
+  position: relative;
+  &:hover img{
+    outline: 5px solid #af8cfb;
+  }
+  
+  img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    border-radius: 150px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transition: all 0.2s ease !important;
+  }
+
+  img:hover + label {
+    display: block;
+  }
+
+  label {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: 1vw;
+    width: 90%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.449);
+    padding: .5vmax;
+    font-weight: 700;
+    border-radius: 7px;
+
+    &:hover {
+      cursor: pointer;
+      display: block;
+    }
+  }
+}
+
+.progress-bar-50{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin-top: 1.5vmax;
+
+  .per-50{
+    color: #af8cfb;
+  }
+  
+  .progress-bar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 30px;
+    
+    .first-50{
+      height: 1vh;
+      background-color: #af8cfb;
+      width: 50%;
+    }
+    
+    .other-50{
+      height: 1vh;
+      background-color: #7e7e7e;
+      width: 50%;
+      
+    }
+  }
+  
+}
+
+.progress-bar-100{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin-top: 1.5vmax;
+  
+  .per-100{
+    color: #af8cfb;
+  }
+  
+  .progress-bar{
+    width: 100%;
+    height: 1vh;
+    background-color: #af8cfb;
+    border-radius: 30px;
+  }
+}
+
+
+//media queryyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+
+@media (max-width:1296px) {
+  .sign-up {
+    width: 70%;
+  }
+  
+  .submit-button{
+    button{
+      margin-top: 2.5vmax;
+    }
+  }
+
+}
+
+@media (max-width:672px) {
+  .sign-up {
+    width: 90%;
+  }
+
+  .sign-up-word{
+    font-size: 3.5vmax;
+  }
+
+  .avatar-su-ph {
+    width: 12vmax;
+    height: 12vmax;
+
+    label {
+      font-size: 3vw;
+    }
+  }
+  
+  .submit-button{
+    button{
+      margin-top: 3vmax;
+    }
+  }
+}

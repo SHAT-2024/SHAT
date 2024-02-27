@@ -1,0 +1,13 @@
+.white-color{
+    color: #e7e7e7;
+}
+
+.shat-logo{
+    width: 6vmax;
+}
+
+@media (max-width:672px) {
+    .shat-logo{
+        width: 8vmax;
+    }
+  }

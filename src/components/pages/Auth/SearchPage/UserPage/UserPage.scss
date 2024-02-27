@@ -1,0 +1,25 @@
+.message-button button {
+  border: none;
+  background-color: #5c3aa4;
+  color: #e7e7e7;
+  font-size: 1.5vmax;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  
+  &:hover{
+    background-color: #8966d5;
+    transform: translateY(-3px);
+  }
+}
+
+
+//media queryyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+
+@media (max-width:1296px) {
+  .message-button button {
+    margin-top: 1.3vmax;
+  }
+
+}

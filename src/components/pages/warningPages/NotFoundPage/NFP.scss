@@ -1,0 +1,19 @@
+.warnings{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    @import url('https://fonts.cdnfonts.com/css/motiva-sans');
+    font-family: 'Motiva Sans', sans-serif;
+
+    p{
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 30%;
+        left: 50%;
+        width: 80%;
+        font-size: 2vmax;
+        background-color: #af8cfb45;
+        padding: 2vmax;
+        border-radius: 20px;
+    }
+}

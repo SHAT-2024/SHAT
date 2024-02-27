@@ -1,0 +1,74 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+html::-webkit-scrollbar {
+	width: .5vw;
+}
+  
+html::-webkit-scrollbar-thumb{
+	background-color:  #a24ab4;
+	border-radius: 20px;
+}
+  
+html::-webkit-scrollbar-track{
+	background-color:  #4f4f4f;
+}
+
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {   
+    color: #e7e7e7 !important;
+    background-color: #121212 !important;
+}
+
+.app-container{
+	background-color: #222222;
+	background-image: radial-gradient(#af8cfb5a 0.5px, transparent 0.5px),
+	  radial-gradient(#af8cfb51 0.5px, transparent 0.5px);
+	background-size: 20px 20px;
+	background-position: 0 0, 10px 10px;
+}
+
+::selection {
+	background-color: #af8cfb6d;
+	color: #ffffff;
+}

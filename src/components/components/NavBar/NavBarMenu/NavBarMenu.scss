@@ -1,0 +1,102 @@
+.navbar-background {
+  background-color: #333333 !important;
+}
+
+.white-color {
+  color: #e7e7e7;
+}
+
+.purple-color {
+  color: #af8cfb;
+}
+
+.registration {
+  display: flex;
+  gap: 1vmax;
+  button{
+    background-color: #8966d5;
+    border: none;
+    outline: none;
+    color: #e7e7e7;
+    font-weight: 600;
+    padding: .7vmax 1.2vmax;
+    border-radius: 20px;
+    font-size: 1vmax;
+    transition: all 0.3s ease;
+    
+    &:hover{
+      background-color: #af8cfb;
+      transform: scale(1.05);
+    }
+
+  }
+}
+
+.navbar-element{
+    color: #e7e7e7;
+    font-size: 30px !important;
+    transition: all 0.1s ease !important;
+    
+    &:hover{
+      color: #af8cfb;
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+}
+
+.navbar-menu{
+    display: flex;
+    gap: 20px;
+
+    img{
+      width: 30px;
+      height: 30px;
+      object-fit: cover;
+      border-radius: 150px;
+      transition: all 0.1s ease !important;
+
+      &:hover{
+        border: 2px solid #8966d5;
+      }
+    }
+}
+
+.toast-buttons{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+  
+  .yes-button{
+    color: #e7e7e7;
+    border: none;
+    background-color: #5c3aa4;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+
+    &:hover{
+      background-color: #8966d5;
+      transform: scale(1.05);
+    }
+
+    &:disabled{
+      background-color: #8966d580;
+    }
+  }
+  
+  .no-button{
+    color: #e7e7e7;
+    border: 3px solid#5c3aa4;
+    background-color: transparent;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    
+    &:hover{
+      background-color: #9b8cbd;
+      border: 3px solid transparent;
+      transform: scale(1.05);
+    }
+  }
+}
+

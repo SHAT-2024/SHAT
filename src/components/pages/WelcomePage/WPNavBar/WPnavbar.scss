@@ -1,0 +1,23 @@
+.wp-registration {
+  display: flex;
+  gap: 1vmax;
+  button{
+    // background-color: #8966d5;
+    background-color: #6d2a7a;
+    // background-color: #af8cfb;
+    border: none;
+    outline: none;
+    color: #e7e7e7;
+    font-weight: 600;
+    padding: .7vmax 1.2vmax;
+    border-radius: 20px;
+    font-size: 1vmax;
+    transition: all 0.3s ease;
+    
+    &:hover{
+      background-color: #934ba9;
+      transform: scale(1.05);
+    }
+
+  }
+}
