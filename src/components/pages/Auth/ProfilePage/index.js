@@ -68,7 +68,7 @@ function ProfilePage() {
     }
 
     try {
-      const editUserReq = await axios.put(`http://localhost:3001/api/v1/users/${currentUser.id}`, obj);
+      const editUserReq = await axios.put(`https://shat-server.onrender.com/api/v1/users/${currentUser.id}`, obj);
       if(editUserReq.status === 203){
 
         socket.emit("update_profile", contextt.state.usernameForm);
@@ -104,7 +104,7 @@ function ProfilePage() {
       try{
         if(currentUser){
           const fetchUserDataRequest = await axios.get(
-            `http://localhost:3001/api/v1/users/${currentUser.id}`
+            `https://shat-server.onrender.com/api/v1/users/${currentUser.id}`
           );
           contextt.dispatch(setLoggedInUsers(fetchUserDataRequest.data));
         }

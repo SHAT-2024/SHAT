@@ -20,7 +20,7 @@ function SearchPage() {
   const getRandomUsers = async (currentUserUsername) => {
     try {
       setShowLoading(true);
-      const getRandomUsersReq = await axios.get("http://localhost:3001/getRandomUsers");
+      const getRandomUsersReq = await axios.get("https://shat-server.onrender.com/getRandomUsers");
       const fetchedData = getRandomUsersReq.data;
       if(getRandomUsersReq.status === 200){
         const allRandomUsers = fetchedData.filter((users) => {
@@ -41,7 +41,7 @@ function SearchPage() {
 
   const getAllUsers = async (currentUserUsername) => {
     try {
-      const getAllUsersReq = await axios.get("http://localhost:3001/api/v1/users");
+      const getAllUsersReq = await axios.get("https://shat-server.onrender.com/api/v1/users");
       const fetchedData = getAllUsersReq.data;
   
       const allUsersFiltered = fetchedData.filter((users) => {

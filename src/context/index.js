@@ -6,7 +6,7 @@ import { setLogInStatus, setLoggedInUsers, setParsedToken, setUpdatedUser } from
 import cookie from "react-cookies";
 import { useNavigate } from "react-router-dom";
 import io from "socket.io-client";
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://shat-server.onrender.com");
 
 export const appContext = React.createContext();
 
@@ -35,7 +35,7 @@ function ContextProvider(props) {
   const signUp = async (userObj) => {
     try {
       const createUser = await axios.post(
-        "http://localhost:3001/signup",
+        "https://shat-server.onrender.com/signup",
         userObj
       );
 
@@ -48,7 +48,7 @@ function ContextProvider(props) {
   const signIn = async (username, password) => {
     try {
       const loginRequest = await axios.post(
-        "http://localhost:3001/signin",
+        "https://shat-server.onrender.com/signin",
         {},
         {
           headers: {
@@ -101,7 +101,7 @@ function ContextProvider(props) {
   const fetchLoggedinUsers = async (id) => {
     try{
       const fetchUserDataRequest = await axios.get(
-        `http://localhost:3001/api/v1/users/${id}`
+        `https://shat-server.onrender.com/api/v1/users/${id}`
       );
       dispatch(setLoggedInUsers(fetchUserDataRequest.data));
     }catch(err){

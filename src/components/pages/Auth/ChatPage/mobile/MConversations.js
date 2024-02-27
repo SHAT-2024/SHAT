@@ -31,7 +31,7 @@ function MConversations({ isCurrentUserHasConversations, conversations, setConve
 
     const deleteCoversation = async (convId, receiverName) => {
     try{
-        let deleteReq = await axios.delete(`http://localhost:3001/DeleteConversationForACeratinUser/${currentUser.id}/${convId}`);
+        let deleteReq = await axios.delete(`https://shat-server.onrender.com/DeleteConversationForACeratinUser/${currentUser.id}/${convId}`);
 
         if(deleteReq.status===200){
 
@@ -40,7 +40,7 @@ function MConversations({ isCurrentUserHasConversations, conversations, setConve
         if(contextt.state.newUserConversation.receiverName === receiverName) contextt.dispatch(setNewUserConversation({})); 
 
         try{
-            let updateConversationsReq = await axios.get(`http://localhost:3001/getCurrentUserConversations/${currentUser.id}`);
+            let updateConversationsReq = await axios.get(`https://shat-server.onrender.com/getCurrentUserConversations/${currentUser.id}`);
             let currentUserConversations = updateConversationsReq.data;
             setConversations(currentUserConversations);
             handleClickCS();

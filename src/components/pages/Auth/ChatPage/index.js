@@ -68,7 +68,7 @@ function ChatPage() {
 
   const checkIfTheCurrentUserHasConversations = async () => {
     try{
-      let checkReq = await axios.get(`http://localhost:3001/IsCurrentUserHasAnyConversations/${currentUser.id}`);
+      let checkReq = await axios.get(`https://shat-server.onrender.com/IsCurrentUserHasAnyConversations/${currentUser.id}`);
       let doesCurrentUserHasConversations = checkReq.data;
       setIsCurrentUserHasConversations(doesCurrentUserHasConversations);
     }catch(err){
@@ -79,7 +79,7 @@ function ChatPage() {
   const getCurrentUserConversations = async () =>{
     try{
       setconversationsLoading(false);
-      let checkReq = await axios.get(`http://localhost:3001/getCurrentUserConversations/${currentUser.id}`);
+      let checkReq = await axios.get(`https://shat-server.onrender.com/getCurrentUserConversations/${currentUser.id}`);
       let currentUserConversations = checkReq.data;
       setConversations(currentUserConversations);
       setconversationsLoading(true);
@@ -100,7 +100,7 @@ function ChatPage() {
   useEffect(()=>{
     async function fetchData() {
       if(IsnewUserConversation && contextt.state.newUserConversation){
-        const fetchUserDataRequest = await axios.get(`http://localhost:3001/fetchUserData?username=${contextt.state.newUserConversation.receiverName}`);
+        const fetchUserDataRequest = await axios.get(`https://shat-server.onrender.com/fetchUserData?username=${contextt.state.newUserConversation.receiverName}`);
         const data = fetchUserDataRequest.data;
         setNewUSerConv(data);
       }

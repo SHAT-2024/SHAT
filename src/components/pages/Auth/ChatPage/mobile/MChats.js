@@ -30,7 +30,7 @@ function MChats({isCurrentUserHasConversations, navigate, IsnewUserConversation,
     if(contextt.state.selectedConversation){
       try{
         setMessagesLoading(false);
-        let checkReq = await axios.get(`http://localhost:3001/getAllMessagesInConversation/${contextt.state.selectedConversation}`);
+        let checkReq = await axios.get(`https://shat-server.onrender.com/getAllMessagesInConversation/${contextt.state.selectedConversation}`);
         let currentUserMessages = checkReq.data.messages;
         setMesages(currentUserMessages);
         setMessagesLoading(true);
@@ -55,14 +55,14 @@ function MChats({isCurrentUserHasConversations, navigate, IsnewUserConversation,
         content: userInputMessage
       }
       setIsMessageSent(true);
-      await axios.post(`http://localhost:3001/api/v1/messages`, messgDetails);
+      await axios.post(`https://shat-server.onrender.com/api/v1/messages`, messgDetails);
       
       socket.emit("send_message", {username: currentUser.username, room: contextt.state.selectedConversation});
 
             
       getSelectedConversationMessages();
 
-      let checkReq = await axios.get(`http://localhost:3001/getCurrentUserConversations/${currentUser.id}`);
+      let checkReq = await axios.get(`https://shat-server.onrender.com/getCurrentUserConversations/${currentUser.id}`);
       let currentUserConversations = checkReq.data;
       setConversations(currentUserConversations);
 
@@ -78,11 +78,11 @@ function MChats({isCurrentUserHasConversations, navigate, IsnewUserConversation,
   const onSendingMessageNewConversation= async ()=> {
     try{
     if(userInputMessage !== ''){
-      const getRecieveruserId = await axios.get(`http://localhost:3001/fetchUserData?username=${contextt.state.newUserConversation.receiverName}`);
+      const getRecieveruserId = await axios.get(`https://shat-server.onrender.com/fetchUserData?username=${contextt.state.newUserConversation.receiverName}`);
       let recieverUserData = getRecieveruserId.data;
       let currentUserId = currentUser.id;
       
-      const createConversation = await axios.post(`http://localhost:3001/createConversation/${currentUserId}/${recieverUserData.id}`);
+      const createConversation = await axios.post(`https://shat-server.onrender.com/createConversation/${currentUserId}/${recieverUserData.id}`);
 
       let newConversationId = createConversation.data.id;
       
@@ -93,9 +93,9 @@ function MChats({isCurrentUserHasConversations, navigate, IsnewUserConversation,
       }
       
       setIsMessageSent(true);
-      await axios.post(`http://localhost:3001/api/v1/messages`, messgDetails);
+      await axios.post(`https://shat-server.onrender.com/api/v1/messages`, messgDetails);
 
-      let checkReq = await axios.get(`http://localhost:3001/getCurrentUserConversations/${currentUserId}`);
+      let checkReq = await axios.get(`https://shat-server.onrender.com/getCurrentUserConversations/${currentUserId}`);
       let currentUserConversations = checkReq.data;
       setConversations(currentUserConversations);
 
@@ -127,13 +127,13 @@ function MChats({isCurrentUserHasConversations, navigate, IsnewUserConversation,
 
   const deleteMessage = async (id) =>{
     try{
-      let deleteReq = await axios.delete(`http://localhost:3001/api/v1/messages/${id}`);
+      let deleteReq = await axios.delete(`https://shat-server.onrender.com/api/v1/messages/${id}`);
 
       if(deleteReq.status===204){
         getSelectedConversationMessages();
         socket.emit("send_message", {username: currentUser.username, room: contextt.state.selectedConversation});
 
-        let checkReq = await axios.get(`http://localhost:3001/getCurrentUserConversations/${currentUser.id}`);
+        let checkReq = await axios.get(`https://shat-server.onrender.com/getCurrentUserConversations/${currentUser.id}`);
         let currentUserConversations = checkReq.data;
         setConversations(currentUserConversations);
         handleClickMDS();
@@ -153,14 +153,14 @@ function MChats({isCurrentUserHasConversations, navigate, IsnewUserConversation,
       };
 
       if(editingMessageId && editMessageInput!==''){
-        let editReq = await axios.patch(`http://localhost:3001/api/v1/messages/${id}`, obj);
+        let editReq = await axios.patch(`https://shat-server.onrender.com/api/v1/messages/${id}`, obj);
         if(editReq.status === 203){
           setEditingMessageId(null);
 
           getSelectedConversationMessages();
           socket.emit("send_message", {username: currentUser.username, room: contextt.state.selectedConversation});
   
-          let checkReq = await axios.get(`http://localhost:3001/getCurrentUserConversations/${currentUser.id}`);
+          let checkReq = await axios.get(`https://shat-server.onrender.com/getCurrentUserConversations/${currentUser.id}`);
           let currentUserConversations = checkReq.data;
           setConversations(currentUserConversations);
           handleClickMES();
@@ -180,7 +180,7 @@ function MChats({isCurrentUserHasConversations, navigate, IsnewUserConversation,
         getSelectedConversationMessages();
       }
 
-      let checkReq = await axios.get(`http://localhost:3001/getCurrentUserConversations/${currentUser.id}`);
+      let checkReq = await axios.get(`https://shat-server.onrender.com/getCurrentUserConversations/${currentUser.id}`);
       let currentUserConversations = checkReq.data;
       setConversations(currentUserConversations);
       setisUserTyping(false);

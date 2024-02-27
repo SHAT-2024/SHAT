@@ -22,12 +22,12 @@ function USerProfilePage() {
   let navigate = contextt.navigate;
 
   const fetchUserData = async () => {
-    const fetchUserDataRequest = await axios.get(`http://localhost:3001/fetchUserData?username=${username}`);
+    const fetchUserDataRequest = await axios.get(`https://shat-server.onrender.com/fetchUserData?username=${username}`);
     setCurrentUSer(fetchUserDataRequest.data);
   }
 
   const onMessageClick = async () =>{
-    const getUserConversationId = await axios.get(`http://localhost:3001/getCoversationId/${currentUserYou.id}/${currentUser.id}`);
+    const getUserConversationId = await axios.get(`https://shat-server.onrender.com/getCoversationId/${currentUserYou.id}/${currentUser.id}`);
     const conversationId = getUserConversationId.data.id;
     if(conversationId){
       await contextt.dispatch(setSelectedUserConversation({receiverName :currentUser.username, receiverAvatar:currentUser.photoURL})); 
