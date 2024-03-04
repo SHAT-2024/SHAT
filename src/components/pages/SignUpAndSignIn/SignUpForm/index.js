@@ -8,11 +8,9 @@ import {
 } from "../../../../store/actions";
 import { appContext } from "../../../../context";
 import "./SignUpForm.scss";
-import axios from "axios";
-import CircularProgress from '@mui/material/CircularProgress';
 import Verification from "./Verification";
 
-function SignUpForm({ setIsUserCreatedSucc, handleClickUCS, handleClickCVS }) {
+function SignUpForm({ setIsUserCreatedSucc, handleClickUCS}) {
   const contextt = useContext(appContext);
   let socket = contextt.socket;
 
@@ -25,24 +23,8 @@ function SignUpForm({ setIsUserCreatedSucc, handleClickUCS, handleClickCVS }) {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
-  const [isSignedUpSucc, setIsSignedUpSucc] = useState(false);
   const [showOtherHalfOfTheForm, setShowOtherHalfOfTheForm] = useState(false);
   const [showVerWindow, setshowVerWindow] = useState(false);
-
-  const uploadToCloud = async () => {
-    const formData = new FormData();
-    formData.append("file", contextt.state.avatarInput);
-    formData.append("upload_preset", "photopic123");
-
-    try{
-      const uploadReq = await axios.post("https://api.cloudinary.com/v1_1/dd4yn2x48/image/upload", formData);
-      const imgurl = uploadReq.data.secure_url;
-      return imgurl;
-
-    }catch(err){
-      console.error('cloudinary error: ', err);
-    }
-  }
   
   const onInputFileChange = () => {
     let reader = new FileReader();
@@ -54,26 +36,8 @@ function SignUpForm({ setIsUserCreatedSucc, handleClickUCS, handleClickCVS }) {
 
   const signUpProcess = async (e) => {
     e.preventDefault();
-
-    setIsSignedUpSucc(true);
-    const userObj = {
-      photoURL : await uploadToCloud(), //should the await remain?
-      username: contextt.state.usernameForm,
-      email: contextt.state.emailForm,
-      bio: contextt.state.bioForm,
-      password: contextt.state.passwordForm,
-    };
-      
-    const signUpStatus = await contextt.signUp(userObj);
-
-    if (signUpStatus === 201) {
-      setIsSignedUpSucc(false);
-      socket.emit("send_ver_code", {username: contextt.state.usernameForm, email: contextt.state.emailForm});
-      setshowVerWindow(true);
-      handleClickUCS();  
-    }else{
-      alert("something went wrong, please try again");
-    }
+    socket.emit("send_ver_code", {username: contextt.state.usernameForm, email: contextt.state.emailForm});
+    setshowVerWindow(true);
   };
 
   const onNextBtnClick = () => {
@@ -84,7 +48,7 @@ function SignUpForm({ setIsUserCreatedSucc, handleClickUCS, handleClickCVS }) {
 
   return (
     // form part 1 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-    showVerWindow? <Verification setIsUserCreatedSucc={setIsUserCreatedSucc} handleClickCVS={handleClickCVS}/> :
+    showVerWindow? <Verification setIsUserCreatedSucc={setIsUserCreatedSucc} handleClickUCS={handleClickUCS}/> :
       <div className="sign-up">
       <p className="center-elements color-purple sign-up-word">Sign up</p>
       <form onSubmit={signUpProcess}>
@@ -198,9 +162,7 @@ function SignUpForm({ setIsUserCreatedSucc, handleClickUCS, handleClickCVS }) {
           <button
             type="submit"
             className="btn bk-purple"
-            disabled = {isSignedUpSucc}
-          >
-            {!isSignedUpSucc? 'Sign up' : <CircularProgress style={{color:'#e7e7e7', width:'1.5vmax', height: '1.5vmax'}}/>}
+          >Sign up
           </button>
         </div>
 
