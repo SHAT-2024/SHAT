@@ -57,7 +57,6 @@ function ContextProvider(props) {
         }
       );
 
-      console.log(loginRequest.data.token, "!!!!!!!!!!! axaios call");
       validateToken(loginRequest.data.token);
       return loginRequest.status;
     } catch (e) {
@@ -66,7 +65,6 @@ function ContextProvider(props) {
   };
 
   const logOut = () => {
-    console.log("yayyyyyyy");
     setLogInStatusfunction(false, null, {});
     dispatch(setParsedToken({}));
     cookie.remove("auth");
@@ -80,7 +78,7 @@ function ContextProvider(props) {
       cookie.save("auth", token);
       navigate("/");
     } catch (e) {
-      console.log("Token Validation Error", e);
+      console.error("Token Validation Error", e);
     }
   };
 
@@ -105,7 +103,7 @@ function ContextProvider(props) {
       );
       dispatch(setLoggedInUsers(fetchUserDataRequest.data));
     }catch(err){
-      console.log('getch user info' ,err);
+      console.error('getch user info' ,err);
     }
   };
 
@@ -114,7 +112,6 @@ function ContextProvider(props) {
     const isLoggedInCookieUE = cookie.load("is_logged_in");
     if (tokenCookieUE) setTokenCookie(tokenCookieUE);
     if (isLoggedInCookieUE) setIsLoggedInCookie(JSON.parse(isLoggedInCookieUE));
-    console.log(tokenCookie, isLoggedInCookie, "GGGGGGGGGGGGGGGGGGGGGGG");
   }, [cookie.load("auth"), cookie.load("is_logged_in")]);
 
   useEffect(() => {

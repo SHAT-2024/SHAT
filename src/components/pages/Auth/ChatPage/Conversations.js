@@ -99,7 +99,7 @@ function Conversations({ isCurrentUserHasConversations, conversations, setConver
               alt="avatar"
             />
             <div className="username-lastmessage">
-              <p>{conv.receiverName}{conv.conversationId}</p>
+              <p>{conv.receiverName}</p>
               <small className="last-message">{conv.lastSender===currentUser.id? 'you' : conv.receiverName}{`: ${conv.lastMessage}`}</small>
             </div>
           </div>
