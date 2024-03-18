@@ -4,6 +4,25 @@
 
 Shat is a web-based app that allows users to connect, chat, and edit their profiles.
 
+### Features:
+- Users can create an account
+- Users can edit their profile information 
+- Users can search for other users 
+- Users can view other users information
+- Users can chat with each other
+- Users can delete conversations
+- Users can edit any message in a conversation 
+- Users can delete any message in a conversation
+- Real time chatting
+- Typing indicator
+
+#### coming Features:
+- sending media and voice records
+- deleting other users messages in a conversation 
+- group chats
+- block users
+- voice and video calls
+
 ## Screenshots
 
 ### Laptop
