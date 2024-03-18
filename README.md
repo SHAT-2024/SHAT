@@ -19,9 +19,12 @@ Shat is a web-based app that allows users to connect, chat, and edit their profi
 #### coming Features:
 - sending media and voice records
 - deleting other users messages in a conversation 
+- notification when receiving a new message
+- message read indicators
+- new and unread messages badge
+- voice and video calls
 - group chats
 - block users
-- voice and video calls
 
 ## Screenshots
 
