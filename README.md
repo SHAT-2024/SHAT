@@ -13,8 +13,8 @@ Shat is a web-based app that allows users to connect, chat, and edit their profi
 - Users can view other users information
 - Users can chat with each other
 - Users can delete conversations
-- Users can edit any message in a conversation 
-- Users can delete any message in a conversation
+- Users can edit any sent message in a conversation 
+- Users can delete any sent message in a conversation
 - Real time chatting
 - Typing indicator
 
