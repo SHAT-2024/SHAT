@@ -74,7 +74,7 @@ function WelcomePage() {
           <section className="about-section">
             <h3>About the creator</h3>
             <p>
-            I'm a Fullstack web developer, I have a huge interest in programming and web development, and I'm really passionate about building various web-based applications. So far I’ve made so many projects such as an online front store for products, users management system, notes app, to-do app and much more.
+            My name is Sham, I'm a Web developer with almost 2 years of experience. I build functional, user friendly and responsive websites and web applications. To find more about Shat <a className="about-link" href="https://sham-aj-portfolio.vercel.app/allprojects/Shat.1.0.1">click here</a>
             </p>
 
             <div className="acc-links">

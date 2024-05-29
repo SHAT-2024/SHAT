@@ -204,6 +204,18 @@ h3{
     width: 70%;
     margin: auto;
     }
+
+    .about-link{
+        font-size: 1.5vmax;
+        font-weight: 500;
+        
+        &:link, &:visited{
+          color: #812494;                
+        } 
+        &:hover, &:active{
+          color: #d793e8;
+        } 
+    }
  
     .acc-links{
         margin: auto;
